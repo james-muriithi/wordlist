@@ -14,17 +14,17 @@ def wordlist(minimum, maximum, characters, outputfile):
                 os.makedirs(os.path.dirname(outputfile))
 
         file = open(outputfile, 'w')
-        print "[+] creating wordlist..."
+        print("[+] creating wordlist...")
         start = time.clock()
         starting_time = time.strftime('%H:%M:%S')
-        print "[i] starting time %s" % starting_time
+        print ("[i] starting time %s" % starting_time)
         character_length = len(str(characters))
         if minimum == maximum:
             total_passwords = character_length ** minimum
         else:
             total_passwords = character_length ** minimum + character_length ** maximum
 
-        print str(total_passwords) + " passwords"
+        print (str ("total_passwords") + (" passwords"))
         for i in range(minimum, maximum + 1):
             for xs in itertools.product(str(characters), repeat=i):
                 file.write(''.join(xs) + "\n")
@@ -32,11 +32,11 @@ def wordlist(minimum, maximum, characters, outputfile):
         file.close()
         stoping_time = time.strftime('%H:%M:%S')
         stop = time.clock()
-        print "[i] stoping time %s" % stoping_time
+        print("[i] stoping time %s" % stoping_time)
         sec = math.ceil(int(stop - start))
-        print "Elapsed time: %s seconds" % sec
+        print("Elapsed time: %s seconds" % sec)
     else:
-        print "Check your minimum and maximum values please"
+        print("Check your minimum and maximum values please")
 
 
 def main():
@@ -52,7 +52,7 @@ def main():
                       help='the maximum password length')
     (options, arg) = parser.parse_args()
     if (options.minimum == None) or (options.maximum == None) or options.combination == None or options.output_file == None:
-        print parser.usage
+        print("parser.usage")
         exit(0)
     else:
         minimum = options.minimum
