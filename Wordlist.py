@@ -52,7 +52,7 @@ def main():
                       help='the maximum password length')
     (options, arg) = parser.parse_args()
     if (options.minimum == None) or (options.maximum == None) or options.combination == None or options.output_file == None:
-        print("parser.usage")
+        print(parser.usage)
         exit(0)
     else:
         minimum = options.minimum
